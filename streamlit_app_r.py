@@ -17,26 +17,31 @@ st.markdown("""
     background: linear-gradient(135deg,#e0f7fa,#f8fbff,#e8f5e9);
 }
 
-/* Padding */
 .block-container{
     padding-top:2rem;
 }
 
-/* Labels */
+/* Input Labels */
 label,
 div[data-testid="stWidgetLabel"] label,
 [data-testid="stWidgetLabel"]{
     color:#000000 !important;
-    font-weight:bold !important;
+    font-size:16px !important;
+    font-weight:600 !important;
+}
+
+/* Caption */
+[data-testid="stCaptionContainer"]{
+    color:#37474F !important;
     font-size:16px !important;
 }
 
-/* Card */
+/* Result Card */
 .card{
     background:white;
     padding:20px;
     border-radius:16px;
-    box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
 }
 
 /* Number Input */
@@ -47,18 +52,18 @@ div[data-testid="stWidgetLabel"] label,
 }
 
 /* Button */
-div.stButton > button{
+div.stButton>button{
     width:100%;
     background:#00897b;
     color:white;
     border:none;
     border-radius:10px;
     height:3em;
-    font-size:17px;
     font-weight:bold;
+    font-size:16px;
 }
 
-div.stButton > button:hover{
+div.stButton>button:hover{
     background:#00695c;
     color:white;
 }
@@ -72,7 +77,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.caption("Fill in the patient's clinical information.")
+st.markdown(
+    "<p style='text-align:center;color:#37474F;font-size:18px;'>Fill in the patient's clinical information.</p>",
+    unsafe_allow_html=True
+)
 
 # ---------------- Input Fields ----------------
 c1, c2 = st.columns(2)
@@ -121,7 +129,6 @@ if st.button("🔍 Analyze Health Risk"):
             """,
             unsafe_allow_html=True
         )
-
     else:
         st.markdown(
             f"""
